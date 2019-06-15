@@ -20,21 +20,21 @@
         public function grantAcess(){
             try{
                 include("Database.php");
-                $login=$this->Login;
-                $senha=md5($this->Senha);
-                $sqLogin="SELECT * FROM Login1 WHERE Login1 = ? AND Senha = ?";
+                $login=$this->getLogin();
+                $senha=$this->getSenha();
+                $sqLogin='SELECT * FROM Login1 WHERE Login1 = :login1 AND Senha = :senha';
                 $stmtAcesso=$conexao->prepare($sqLogin);
-                $stmtAcesso->bindParam(1,$login);
-                $stmtAcesso->bindParam(2,$senha);
-                $count=$stmtAcesso->execute();
-                if($stmtAcesso->columnCount() ==1){   
-                    return true;
+                $stmtAcesso->bindParam(':login1',$login);
+                $stmtAcesso->bindParam(':senha',$senha);
+                $stmtAcesso->execute();
+                $dado=$stmtAcesso->fetchAll(PDO::FETCH_ASSOC);
+                if(count($dado)>0){
+                    echo true;
                 }else{
-                    return false;
+                    echo false;
                 }
             }catch(PDOException $e){
                 echo "Erro: ".$e->getMessage();
-                return false;
             }
         }
     }

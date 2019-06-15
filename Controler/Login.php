@@ -5,13 +5,17 @@
             case 'NOVO_LOGIN':
                 include '../Model/Login.php';
                 $novoLogin=new Login();
-                $novoLogin->setLogin($_POST['login']);
-                $novoLogin->setSenha($_POST['senha']);
+                $login=$_POST['login'];
+                $senha=md5($_POST['senha']);
+                $novoLogin->setLogin($login);
+                $novoLogin->setSenha($senha);
                 if($novoLogin->grantAcess()){
                     session_start();
                     $_SESSION['Login1']=$novoLogin->getLogin();
                     $_SESSION['Senha']=$novoLogin->getSenha();
-                    header("location: ../View/Gerencia.php"); 
+                    echo true; 
+                }else{
+                    echo false;
                 }
                 break;
         }

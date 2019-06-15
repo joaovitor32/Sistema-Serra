@@ -8,6 +8,11 @@ $(document).ready(function(){
         var dados=new FormData(form);
         var dadosSerializados=new URLSearchParams(dados).toString();
         $.post('../Controler/Login.php',dadosSerializados,function(retorno){
+            if(retorno==true){
+                alert('deu bom');
+            }else if(retorno ==false){
+                alert('nao deu bom');
+            }
         },'json');
     }
 });
