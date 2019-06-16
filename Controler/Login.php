@@ -18,6 +18,9 @@
                     echo false;
                 }
                 break;
+            case 'SAIR_LOGIN':
+            
+            break;
         }
     }
 ?>

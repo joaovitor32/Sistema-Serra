@@ -1,0 +1,108 @@
+body{
+    overflow-x:hidden;
+}
+/*-----------Imagem-----------*/
+.Ico{
+    margin-top:5%;
+    width:25%;
+    height:25%;
+    margin-left:42%;
+    margin-bottom:3%;
+    float:left;
+}
+.IcoLogout{
+    width:25%;
+    height:25%;
+    margin-top:3%;
+    margin-left:23%;
+}
+.Seta{
+    display: block;
+    width:8%;
+    height:8%;
+    margin-top:14%;
+}
+.imgEngrenagemResize{
+    display: none;
+}
+.imgEngrenagem{
+    height: 20%;
+    width:90%;
+    margin-left:6%;
+    margin-bottom:12%;
+}
+/*-------------Dropdown effect---------------*/
+.dropdown{
+    position:relative;
+    display:inline-block;
+}
+.dropdown-content{
+    margin-top:12%;
+    display:none;
+    background-color:rgba(254,103,0,0.45);
+    min-width:100%;
+    box-shadow:10%;
+    padding:10% 6%;
+    z-index:1; 
+
+}
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+/*---------------Links no dropdown--------------------*/
+
+/*-----------Menu lateral-----------*/
+.floatBox a:link {
+    text-decoration:none;
+    }
+.floatBox a:visited {
+    text-decoration:none;
+}
+.floatBox{
+    border: 1.5px solid rgba(254,103,0,0.9);
+    width:12%;
+    height:100%;
+    z-index:1;
+    background-color:rgba(220,220,220,0.4);
+    top:0;
+    left:0;
+    padding:2% 0%;
+    float:left;
+    position:fixed;
+   
+}
+.floatBox a{
+    color:rgb(254,103,0);
+    display:block;
+    padding: 2% 0% 2% 34%;
+    margin-top:2%;
+    font-size:1em;
+    font-weight:bold;
+    position:relative;
+}
+.floatBox a:hover{
+    color:white;
+    transition:1s;
+    -moz-transition:1s;
+    -o-transition:1s;
+    -webkit-transition:1s;
+}
+@media screen and (max-width:800px){
+    .floatBox{
+        display:none;
+    }
+    .imgEngrenagemResize{
+        display: inline-block;
+        margin-left:22%;
+        margin-bottom:2%;
+        margin-top:4%;
+        width:60%;
+        height:75%;
+        margin-left:21%;
+    }
+}
+@media screen and (max-width:1060px){
+    .floatBox a{
+        padding:15%;
+    }
+}
