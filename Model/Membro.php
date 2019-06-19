@@ -1,5 +1,5 @@
 <?php
-    class Aluno{
+    class Membro{
         private $CodMembro;
         private $Nome;
         private $Curso;
@@ -15,9 +15,6 @@
         private $Status;
 
         //Getes 
-        public function getCodMembro(){
-            return $this->CodMembro;
-        }
         public function getNome(){
             return $this->Nome;
         }  
@@ -55,9 +52,6 @@
             return $this->Status;
         }
         //Settes
-        public function setCodMembro($codMembro){
-            $this->CodMembro=$codMembro;
-        }
         public function setNome($Nome){
             $this->Nome=$Nome;
         }  
@@ -92,18 +86,17 @@
             $this->DataNas=$DataNas;
         }
         public function setStatus($Status){
-            $this->Status=$status;
+            $this->Status=$Status;
         }
         //CRUD
         public function createAluno(){
             try{
-            
-                include('Database.php');
-                $sqlInsert="INSERT INTO Membro(Nome,Curso,AnoDeEntrada,Cargo,Telefone,CPF,Rua,Numero,Email,DataNascimento,Bairro,Estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                include 'Database.php';
+                $sqlInsert='INSERT INTO Membro(Nome,Curso,AnoDeEntrada,Cargo,Telefone,CPF,Rua,Numero,Email,DataNascimento,Bairro,Estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
                 $stmtInsert=$conexao->prepare($sqlInsert);
                 $stmtInsert->bindParam(1,$this->Nome);
                 $stmtInsert->bindParam(2,$this->Curso);
-                $stmtInsert->bindParam(3,$this->AnoDeEntrada);
+                $stmtInsert->bindParam(3,$this->AnoEntrada);
                 $stmtInsert->bindParam(4,$this->Cargo);
                 $stmtInsert->bindParam(5,$this->Telefone);
                 $stmtInsert->bindParam(6,$this->CPF);
@@ -112,9 +105,8 @@
                 $stmtInsert->bindParam(9,$this->Email);
                 $stmtInsert->bindParam(10,$this->DataNas);
                 $stmtInsert->bindParam(11,$this->Bairro);
-                $stmtInsert->bindParam(12,$this->Estado);
+                $stmtInsert->bindParam(12,$this->Status);
                 $stmtInsert->execute();
-            
             }catch(PDOException $e){
                 echo 'Erro:'.$e->getMessage();
             }
