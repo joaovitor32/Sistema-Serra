@@ -20,7 +20,12 @@
                 $novoMembro->createAluno();
                 $result=$_POST['action'];
                 return json_encode(array('result'=>$result));
-                break;
+            break;
+            case 'LISTA_MEMBRO':
+                include '../Model/Membro.php';
+                $membro=new Membro();
+                echo $membro->listaMembrosJson();
+            break;
         }
     }
 ?>

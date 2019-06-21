@@ -129,7 +129,7 @@
         public function deleteMembro(){
             try{
             
-                include('Database.php');
+                include 'Database.php';
                 $sqlDelete='DELETE FROM Membro WHERE CodMembro=?';
                 $stmtDelete=$conexao->prepare($sqlDelete);
                 $stmtDelete->bindParam(1,$this->matricula);
@@ -142,8 +142,8 @@
         public function listagemMembros(){
             try{
 
-                include('Database.php');
-                $sqlLista="SELECT * FROM Membro";
+                include 'Database.php';
+                $sqlLista='SELECT * FROM Membro';
                 $stmtLista=$conexao->prepare($sqlLista);
                 $stmtLista->execute();
                 $Membros=$stmtLista->fetchALL(PDO::FETCH_ASSOC);
@@ -154,7 +154,7 @@
             }
         }
         public function listaMembrosJson(){
-            echo json_encode($this->listagemMembro());
+                echo json_encode($this->listagemMembros());
         }
     }
 ?>
