@@ -19,13 +19,13 @@
                 $novoMembro->setStatus(1);
                 $novoMembro->createAluno();
                 $result=$_POST['action'];
-                return json_encode(array('result'=>$result));
-            break;
+                echo json_encode(array('result'=>$result));
+                break;    
             case 'LISTA_MEMBRO':
                 include '../Model/Membro.php';
-                $membro=new Membro();
-                echo $membro->listaMembrosJson();
-            break;
+                $membros=new Membro();
+                return $membros->listaMembrosJson();
+                break;
         }
     }
 ?>

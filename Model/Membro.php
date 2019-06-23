@@ -142,19 +142,20 @@
         public function listagemMembros(){
             try{
 
-                include 'Database.php';
-                $sqlLista='SELECT * FROM Membro';
+                require 'Database.php';
+                $sqlLista="SELECT * FROM Membro";
                 $stmtLista=$conexao->prepare($sqlLista);
                 $stmtLista->execute();
-                $Membros=$stmtLista->fetchALL(PDO::FETCH_ASSOC);
-                return $Membros;
+
+                $membros=$stmtLista->fetchALL(PDO::FETCH_ASSOC);
+                return $membros;
 
             }catch(PDOException $e){
                 echo 'Erro: '.$e->getMessage();
             }
         }
         public function listaMembrosJson(){
-                echo json_encode($this->listagemMembros());
+                return json_encode($this->listagemMembros());
         }
     }
 ?>
