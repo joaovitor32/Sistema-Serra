@@ -58,18 +58,18 @@
             }
             function listaTabela(){
                 let tabelaBox=document.getElementById('boxTabela');
-                $.post('../Controler/Membro.php',{action:'LISTA_MEMBRO'},function(membros){
-                    let lista='';
-                    $.each(membros,function(indice,membro){
+                while(tabelaBox.firstChild){
+                    tabelaBox.removeChild(tabelaBox.firstChild);
+                }
+                $.getJSON('../Controler/Membro.php',{action:'LISTA_MEMBRO'},function(membros){
+                    var lista='';
+                    for(membro in membros){
                         lista+='<tr>';
-                        lista+='<td>'+membro.Nome+'<td>';
+                        lista+='<td>'+membro.Nome+'</td>';
                         lista+='</tr>';
-                    });
-                    while(tabelaBox.firstChild){
-                        tabelaBox.removeChild(tabelaBox.firstChild);
                     }
                     tabelaBox.appendChild(lista);
-                },'json');
+                });
             } 
         </script>
     </body>

@@ -142,8 +142,8 @@
         public function listagemMembros(){
             try{
 
-                require 'Database.php';
-                $sqlLista="SELECT * FROM Membro";
+                include 'Database.php';
+                $sqlLista='SELECT * FROM Membro';
                 $stmtLista=$conexao->prepare($sqlLista);
                 $stmtLista->execute();
 
@@ -155,6 +155,7 @@
             }
         }
         public function listaMembrosJson(){
+                
                 return json_encode($this->listagemMembros());
         }
     }
