@@ -1,5 +1,7 @@
 <?php
-    if(!empty($_POST['action'])){
+
+    if(! empty($_POST['action']))
+    {
         $result='';
         switch($_POST['action']){
             case 'NOVO_CADASTRO_MEMBRO':
@@ -23,9 +25,12 @@
                 break;    
             case 'LISTA_MEMBRO':
                 include '../Model/Membro.php';
-                $membros=new Membro();
-                return $membros->listaMembrosJson();
+                $membros = new Membro();
+                echo $membros->listaMembrosJson();
                 break;
         }
+    }else{
+echo "bnatata";
+        
     }
 ?>

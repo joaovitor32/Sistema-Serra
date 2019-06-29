@@ -54,6 +54,7 @@
                 $(document).ready(function(){
                     $('#myTable').DataTable();
                     listaTabela();
+                    listaUsuario();
                 });
             }
             function listaTabela(){
@@ -61,7 +62,7 @@
                 while(tabelaBox.firstChild){
                     tabelaBox.removeChild(tabelaBox.firstChild);
                 }
-                $.getJSON('../Controler/Membro.php',{action:'LISTA_MEMBRO'},function(membros){
+                $.post('../Controler/Membro.php',{action:'LISTA_MEMBRO'},function(membros){
                     var lista='';
                     for(membro in membros){
                         lista+='<tr>';
@@ -69,8 +70,11 @@
                         lista+='</tr>';
                     }
                     tabelaBox.appendChild(lista);
-                });
+                },'json');
             } 
+
+
+
         </script>
     </body>
 </html>
