@@ -24,13 +24,10 @@
                 echo json_encode(array('result'=>$result));
                 break;    
             case 'LISTA_MEMBRO':
-                include '../Model/Membro.php';
+                include('../Model/Membro.php');
                 $membros = new Membro();
                 echo $membros->listaMembrosJson();
                 break;
-        }
-    }else{
-echo "bnatata";
-        
     }
+}
 ?>

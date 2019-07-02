@@ -2,6 +2,7 @@
 <html> 
     <head>
         <title>Cadastro</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./Css/BarraLateral/MenuLateralSistema.css">
         <link rel="stylesheet" type="text/css" href="./Css/Cadastro/CadastroMembro.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">

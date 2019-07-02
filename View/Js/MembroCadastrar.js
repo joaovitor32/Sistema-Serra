@@ -8,7 +8,7 @@ $(document).ready(function(){
         var dadosMembro=new FormData(form);
         var dadosSerializados=new URLSearchParams(dadosMembro).toString();
         $.post('../Controler/Membro.php',dadosSerializados,function(retorno){
-            
+            window.location="MembroCadastrar.php";
         },'json');
     }
 });

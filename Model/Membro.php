@@ -92,7 +92,7 @@
         public function createAluno(){
             try{
                 include 'Database.php';
-                $sqlInsert='INSERT INTO Membro(Nome,Curso,AnoDeEntrada,Cargo,Telefone,CPF,Rua,Numero,Email,DataNascimento,Bairro,Estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
+                $sqlInsert='INSERT INTO Membros(Nome,Curso,AnoDeEntrada,Cargo,Telefone,CPF,NomeRua,Numero,Email,DataNascimento,Bairro,Estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
                 $stmtInsert=$conexao->prepare($sqlInsert);
                 $stmtInsert->bindParam(1,$this->Nome);
                 $stmtInsert->bindParam(2,$this->Curso);
@@ -115,7 +115,7 @@
             try{
 
                 include('Database.php');
-                $sqlMembro='SELECT * FROM Membro WHERE CodMembro=?';
+                $sqlMembro='SELECT * FROM Membros WHERE CodMembro=?';
                 $stmtMembro=$conexao->prepare($sqlMembro);
                 $stmtMembro->bindParam(1,$this->CodMembro);
 
@@ -130,7 +130,7 @@
             try{
             
                 include 'Database.php';
-                $sqlDelete='DELETE FROM Membro WHERE CodMembro=?';
+                $sqlDelete='DELETE FROM Membros WHERE CodMembro=?';
                 $stmtDelete=$conexao->prepare($sqlDelete);
                 $stmtDelete->bindParam(1,$this->matricula);
                 $stmtDelete->execute();
@@ -141,9 +141,8 @@
         }
         public function listagemMembros(){
             try{
-
-                include 'Database.php';
-                $sqlLista='SELECT * FROM Membro';
+                include('Database.php');
+                $sqlLista='SELECT * FROM Membros';
                 $stmtLista=$conexao->prepare($sqlLista);
                 $stmtLista->execute();
 
