@@ -14,3 +14,8 @@ $(document).ready(function(){
         },'json');
     }
 });
+window.onload=function lockPage(){
+    document.addEventListener("DOMContentLoaded", function(event){
+        window.location.assign('Login.html');
+      });
+}

@@ -6,9 +6,16 @@ $(document).ready(function(){
     function newCadastro(){
         let form=document.getElementById('frm-cadastro-membro');
         var dadosMembro=new FormData(form);
-        var dadosSerializados=new URLSearchParams(dadosMembro).toString();
-        $.post('../Controler/Membro.php',dadosSerializados,function(retorno){
-            window.location="MembroCadastrar.php";
-        },'json');
+        $.ajax({
+            type:'POST',
+            url:"../Controler/Membro.php",
+            data:dadosMembro,
+
+            // Tell jQuery not to process data or worry about content-type
+            // You *must* include these options!
+            cache:false,
+            contentType:false,
+            processData:false
+        });
     }
 });

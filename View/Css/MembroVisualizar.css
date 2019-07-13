@@ -2,3 +2,12 @@
     overflow-x: scroll;
     margin-top:3%;
 }
+table{
+    border-collapse: collapse;
+}
+td>.lupaRedirect{
+    width:45%;
+    height:16%; 
+    position:relative; 
+    left:40%;
+}   

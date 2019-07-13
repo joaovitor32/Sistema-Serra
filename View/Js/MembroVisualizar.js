@@ -1,8 +1,8 @@
+//Funções relacionadas a tabela
 function startTabela(){
     $(document).ready(function(){
         $('#myTable').DataTable();
         listaTabela();
-        //listaUsuario();
     });
 }
 function listaTabela(){
@@ -15,10 +15,10 @@ function listaTabela(){
         $.each(membros,function(indice,membro){
                 lista += '<tr>';
                 lista += ' <td >'+membro.Nome+'</td>';
-                lista += ' <td>Redirecionamento</td>';
+                lista += ' <td><img onclick="redirectMembroDados('+membro.CodMembro+');" class="lupaRedirect" src="./Icons/lupa.svg"></td>';
                 lista += ' <td>'+membro.Curso+'</td>';
                 lista += ' <td>'+membro.AnoDeEntrada+'</td>';
-                lista += ' <td>'+membro.Cargo+'</td>';
+                lista += '<td>'+membro.Cargo+'</td>';
                 lista += ' <td>'+membro.Telefone+'</td>';
                 lista += ' <td>'+membro.CPF+'</td>';
                 lista += ' <td>'+membro.NomeRua+'</td>';
@@ -31,4 +31,7 @@ function listaTabela(){
         });
         tabelaBox.innerHTML=lista;
     },'json');
+}
+function redirectMembroDados(codMembro){
+    window.location.href="../View/FolhaMembro.php?codMembro="+codMembro;
 }

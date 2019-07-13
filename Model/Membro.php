@@ -94,6 +94,7 @@
                 include 'Database.php';
                 $sqlInsert='INSERT INTO Membros(Nome,Curso,AnoDeEntrada,Cargo,Telefone,CPF,NomeRua,Numero,Email,DataNascimento,Bairro,Estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
                 $stmtInsert=$conexao->prepare($sqlInsert);
+                $conexao->beginTransaction();
                 $stmtInsert->bindParam(1,$this->Nome);
                 $stmtInsert->bindParam(2,$this->Curso);
                 $stmtInsert->bindParam(3,$this->AnoEntrada);
@@ -105,9 +106,11 @@
                 $stmtInsert->bindParam(9,$this->Email);
                 $stmtInsert->bindParam(10,$this->DataNas);
                 $stmtInsert->bindParam(11,$this->Bairro);
-                $stmtInsert->bindParam(12,$this->Status);
+                $stmtInsert->bindParam(12,$this->Status); 
                 $stmtInsert->execute();
+                $conexao->commit();
             }catch(PDOException $e){
+                $conexao->rollback();
                 echo 'Erro:'.$e->getMessage();
             }
         }
@@ -154,8 +157,38 @@
             }
         }
         public function listaMembrosJson(){
-                
                 return json_encode($this->listagemMembros());
+        }
+        //Ultimo id inserido
+        public function lastId(){
+            try{
+                include('Database.php');
+                $sqlLista='SELECT CodMembro FROM Membros WHERE CodMembro=(SELECT MAX(CodMembro) FROM Membros)';
+                $stmtLista=$conexao->prepare($sqlLista);
+                $stmtLista->execute();
+                $dado=$stmtLista->fetch(PDO::FETCH_ASSOC);
+                return $dado['CodMembro'];
+            }catch(PDOException $e){
+                echo 'Erro: '.$e->getMessage();
+            }
+        }
+        //Alocação de foto do membro na pasta 
+        public function cadastroDeFoto($Foto){
+            try{
+                if($Foto['error']==0){
+                    $arquivo_tmp=$Foto['tmp_name'];
+                    $nome=$Foto['name'];
+                    $extensao=pathinfo($nome,PATHINFO_EXTENSION);
+                    $extensao=strtolower($extensao);
+                    if(strstr('.jpg;.jpeg;.gif;.png',$extensao)){
+                        $novoNome=$this->lastId();
+                        $destino='../View/FotoMembro/'.$novoNome.'.jpg';
+                        @move_uploaded_file($arquivo_tmp,$destino);
+                    }
+                }
+            }catch(PDOException $e){
+                echo 'Erro: '.$e->getMessage();
+            }
         }
     }
 ?>
