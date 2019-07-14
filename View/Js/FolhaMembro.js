@@ -22,9 +22,13 @@ function carregaDados(codMembro){
 //Codigo a partir daqui é só efeito visual dos componentes do DOM
 function startFadeInDados(){
     var foto = document.getElementById('foto');
+    var tabelaProjeto = document.getElementById('compartimentoTabelaProjeto');
     setInterval(function () {
         changeOpacityFoto(foto);
         changeMarginTopoFoto(foto);
+    },40);
+    setInterval(function () {
+        changeOpacityTabelaProjeto(tabelaProjeto);
     },40);
 }
 function changeMarginTopoFoto(foto){
@@ -39,5 +43,12 @@ function changeOpacityFoto(foto){
     if(opacityFoto<1){
         opacityFoto+=0.08;
         foto.style.opacity=opacityFoto;
+    }
+}
+function changeOpacityTabelaProjeto(tabelaProjeto){
+    var tabelaProjOpacity = Number(tabelaProjeto.style.getPropertyValue('opacity'));
+    if(tabelaProjOpacity<1){
+        tabelaProjOpacity+=0.017;
+        tabelaProjeto.style.opacity=tabelaProjOpacity;
     }
 }

@@ -29,7 +29,7 @@
         <div class="container">
                 <div class="row">
                     <div class="col-md-12 offset-md-1">
-                        <div id="compartimentoTabela">
+                        <div id="compartimentoTabelaProjeto">
                             <table class="table" >
                                 <thead>
                                     <tr>

@@ -14,6 +14,8 @@
     -o-transition:1s;
     -moz-transition:1s;
 }
-#compartimentoTabela{
+#compartimentoTabelaProjeto{
     margin-top:2%;
+    opacity: 0;
+    
 }
