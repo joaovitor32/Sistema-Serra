@@ -1,0 +1,16 @@
+.displayInfos{
+    margin-left:20%;
+}
+.fotoMembro{
+    width:30%;
+    height: 30%;
+    margin-top:2%;
+    margin-left:24%;
+    opacity: 0;
+    border:1px solid rgb(254,103,0);
+    margin-top:-35%;
+    transition:1s;
+    -webkit-transition:1s;
+    -o-transition:1s;
+    -moz-transition:1s;
+}
