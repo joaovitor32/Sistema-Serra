@@ -24,48 +24,26 @@ function startFadeInDados(){
     var foto = document.getElementById('foto');
     var tabelaProjeto = document.getElementById('compartimentoTabelaProjeto');
     setInterval(function () {
-        changeOpacityFoto(foto);
-        changeMarginTopoFoto(foto);
+        changeOpacity(foto);
+        changeMarginTopo(foto);
     },40);
     setInterval(function () {
-        changeOpacityTabelaProjeto(tabelaProjeto);
-        changeMarginTopoTabelaProjeto(tabelaProjeto);
+        changeOpacity(tabelaProjeto);
+        changeMarginTopo(tabelaProjeto);
     },40);
 }
-function changeMarginTopoFoto(foto){
-    var marginTop1=Number(foto.style.marginTop);
-    while(marginTop1<2){
-        marginTop1=marginTop1+0.025;
-        foto.style.marginTop=marginTop1+'%';
+//O conceito de reuso foi usado fortemente aqui
+function changeOpacity(elemento){
+    var opacityElemento = Number(elemento.style.getPropertyValue('opacity'));
+    if(opacityElemento<1){
+        opacityElemento+=0.08;
+        elemento.style.opacity=opacityElemento;
     }
 }
-//Foto
-function changeOpacityFoto(foto){
-    var opacityFoto = Number(foto.style.getPropertyValue('opacity'));
-    if(opacityFoto<1){
-        opacityFoto+=0.08;
-        foto.style.opacity=opacityFoto;
-    }
-}
-function changeMarginTopoFoto(foto){
-    var marginTop1=Number(foto.style.marginTop);
-    while(marginTop1<2){
-        marginTop1=marginTop1+0.025;
-        foto.style.marginTop=marginTop1+'%';
-    }
-}
-//Tabela projeto
-function changeOpacityTabelaProjeto(tabelaProjeto){
-    var tabelaProjOpacity = Number(tabelaProjeto.style.getPropertyValue('opacity'));
-    if(tabelaProjOpacity<1){
-        tabelaProjOpacity+=0.04;
-        tabelaProjeto.style.opacity=tabelaProjOpacity;
-    }
-}
-function changeMarginTopoTabelaProjeto(tabelaProjeto){
-    var tabelaProjetoTop1=Number(tabelaProjeto.style.marginTop);
-    while(tabelaProjetoTop1<2){
-        tabelaProjetoTop1=tabelaProjetoTop1+0.025;
-        tabelaProjeto.style.marginTop=tabelaProjetoTop1+'%';
+function changeMarginTopo(elemento){
+    var elementoMarginTop=Number(elemento.style.marginTop);
+    while(elementoMarginTop<2){
+        elementoMarginTop=elementoMarginTop+0.025;
+        elemento.style.marginTop=elementoMarginTop+'%';
     }
 }
