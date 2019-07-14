@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <!---Barra lateral-->
-    <body>
+    <body onload='carregaDados("<?php echo $codMembro ?>");'>
         <section>
            <?php
                 include 'BarraLateralSistema.php';
@@ -23,12 +23,34 @@
         </section>
         <section class="displayInfos">
             <div>
-                <?php
-                     echo "<img onload='startFadeIn();' id='foto' class='fotoMembro' src='../View/FotoMembro/$codMembro.jpg'>";
-                ?>
+                <img id='foto' onload='startFadeInDados();' class='fotoMembro' src="../View/FotoMembro/<?php echo $codMembro?>.jpg">
             </div>
         </section>
-        
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-12 offset-md-1">
+                        <div id="compartimentoTabela">
+                            <table class="table" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome: </th>
+                                        <th scope="col">Data de Inicio: </th>
+                                        <th scope="col">Data fim: </th>
+                                        <th scope="col">Preço: </th>
+                                        <th scope="col">Descrição: </th>
+                                        <th scope="col">Contratante: </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="boxTabelaProjeto"> 
+                                
+                                </tbody>
+                            </table>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        <section>
+        </section>
         <script type="text/javascript" src="Js/BarraLateral.js"></script>
         <script type="text/javascript" src="Js/FolhaMembro.js"></script>
         <script type="text/javascript" src="jsBootstrap/jquery-3.4.1.min.js"></script>
