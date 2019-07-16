@@ -1,4 +1,9 @@
 function carregaDados(codMembro){
+    carregaTabelaProjeto(codMembro);
+    carregaTabelaTreinamento(codMembro);
+}
+//Parte para carregar as tabelas
+function carregaTabelaProjeto(codMembro){
     var lista='';
     let tabelaBoxProjeto=document.getElementById('boxTabelaProjeto');
     while(tabelaBoxProjeto.firstChild){
@@ -18,11 +23,28 @@ function carregaDados(codMembro){
         tabelaBoxProjeto.innerHTML=lista;
     },'json');
 }
-
+function carregaTabelaTreinamento(codMembro){
+    var lista='';
+    let boxTabelaTreinamento=document.getElementById('boxTabelaTreinamento');
+    while(boxTabelaTreinamento.firstChild){
+        boxTabelaTreinamento.removeChild(boxTabelaTreinamento.firstChild);
+    }
+    $.post('../Controler/Treinamento.php',{action:'VISUALIZACAO_TREINAMENTOS',codMembro:codMembro},function(treinamentos){
+        $.each(treinamentos,function(indice,treinamento){
+            lista+='<tr>';
+            lista+='<td>'+treinamento.DuracaoDias+'</td>';
+            lista+='<td>'+treinamento.HorasTotais+'</td>';
+            lista+='<td>'+treinamento.TipoTreinamento+'</td>';
+            lista+='</tr>';
+        });
+        boxTabelaTreinamento.innerHTML=lista;
+    },'json');
+}
 //Codigo a partir daqui é só efeito visual dos componentes do DOM
 function startFadeInDados(){
     var foto = document.getElementById('foto');
     var tabelaProjeto = document.getElementById('compartimentoTabelaProjeto');
+    var tabelaTreinamento=document.getElementById('compartimentoTabelaTreinamento');
     setInterval(function () {
         changeOpacity(foto);
         changeMarginTopo(foto);
@@ -30,6 +52,10 @@ function startFadeInDados(){
     setInterval(function () {
         changeOpacity(tabelaProjeto);
         changeMarginTopo(tabelaProjeto);
+    },40);
+    setInterval(function () {
+        changeOpacity(tabelaTreinamento);
+        changeMarginTopo(tabelaTreinamento);
     },40);
 }
 //O conceito de reuso foi usado fortemente aqui

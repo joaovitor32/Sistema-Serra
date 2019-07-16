@@ -26,7 +26,7 @@
                 <img id='foto' onload='startFadeInDados();' class='fotoMembro' src="../View/FotoMembro/<?php echo $codMembro?>.jpg">
             </div>
         </section>
-        <div class="container">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-12 offset-md-1">
                         <div id="compartimentoTabelaProjeto">
@@ -49,7 +49,28 @@
                     </div>
                 </div>
             </div>
+        </section>
         <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 offset-md-1">
+                        <div id="compartimentoTabelaTreinamento">
+                            <table class="table" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Duração em dias: </th>
+                                        <th scope="col">Horas totais: </th>
+                                        <th scope="col">Descrição do treinamento: </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="boxTabelaTreinamento"> 
+                                
+                                </tbody>
+                            </table>
+                        </div>  
+                    </div>
+                </div>
+            </div>
         </section>
         <script type="text/javascript" src="Js/BarraLateral.js"></script>
         <script type="text/javascript" src="Js/FolhaMembro.js"></script>
