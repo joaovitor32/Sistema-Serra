@@ -26,10 +26,12 @@
                 <img id='foto' onload='startFadeInDados();' class='fotoMembro' src="../View/FotoMembro/<?php echo $codMembro?>.jpg">
             </div>
         </section>
+        <section>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 offset-md-1">
                         <div id="compartimentoTabelaProjeto">
+                            <div class="tituloTabela">Projetos: </div>
                             <table class="table" >
                                 <thead>
                                     <tr>
@@ -55,6 +57,7 @@
                 <div class="row">
                     <div class="col-md-12 offset-md-1">
                         <div id="compartimentoTabelaTreinamento">
+                            <div class="tituloTabela">Treinamentos: </div>
                             <table class="table" >
                                 <thead>
                                     <tr>
@@ -64,6 +67,29 @@
                                     </tr>
                                 </thead>
                                 <tbody id="boxTabelaTreinamento"> 
+                                
+                                </tbody>
+                            </table>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 offset-md-1">
+                        <div id="compartimentoTabelaEvento">
+                            <div class="tituloTabela">Eventos: </div>
+                            <table class="table" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome do evento: </th>
+                                        <th scope="col">Data: </th>
+                                        <th scope="col">Descrição do evento: </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="boxTabelaEvento"> 
                                 
                                 </tbody>
                             </table>

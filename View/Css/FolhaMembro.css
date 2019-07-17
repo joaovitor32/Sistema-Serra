@@ -1,3 +1,6 @@
+body{
+    overflow-y:scroll;
+}
 .displayInfos{
     margin-left:20%;
 }
@@ -14,16 +17,7 @@
     -o-transition:1s;
     -moz-transition:1s;
 }
-#compartimentoTabelaProjeto{
-    margin-top:2%;
-    opacity: 0;
-    margin-top:-45%;
-    transition:1s;
-    -webkit-transition:1s;
-    -o-transition:1s;
-    -moz-transition:1s;
-}
-#compartimentoTabelaTreinamento{
+#compartimentoTabelaProjeto,#compartimentoTabelaTreinamento,#compartimentoTabelaEvento{
     margin-top:2%;
     opacity: 0;
     margin-top:-25%;
@@ -31,4 +25,10 @@
     -webkit-transition:1s;
     -o-transition:1s;
     -moz-transition:1s;
+}
+.tituloTabela{
+    font-size:1.6em;
+    font-weight: bold;
+    margin-left: 1%;
+    margin-bottom:1%;
 }

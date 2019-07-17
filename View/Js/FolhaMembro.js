@@ -1,14 +1,13 @@
 function carregaDados(codMembro){
     carregaTabelaProjeto(codMembro);
     carregaTabelaTreinamento(codMembro);
+    carregaTabelaEvento(codMembro);
 }
 //Parte para carregar as tabelas
 function carregaTabelaProjeto(codMembro){
     var lista='';
     let tabelaBoxProjeto=document.getElementById('boxTabelaProjeto');
-    while(tabelaBoxProjeto.firstChild){
-        tabelaBoxProjeto.removeChild(tabelaBoxProjeto.firstChild);
-    }
+    cleanTabelas(tabelaBoxProjeto);
     $.post('../Controler/Projetos.php',{action:'VISUALIZACAO_PROJETOS',codMembro:codMembro},function(projetos){
         $.each(projetos,function(indice,projeto){
             lista+='<tr>';
@@ -26,9 +25,7 @@ function carregaTabelaProjeto(codMembro){
 function carregaTabelaTreinamento(codMembro){
     var lista='';
     let boxTabelaTreinamento=document.getElementById('boxTabelaTreinamento');
-    while(boxTabelaTreinamento.firstChild){
-        boxTabelaTreinamento.removeChild(boxTabelaTreinamento.firstChild);
-    }
+    cleanTabelas(boxTabelaTreinamento);
     $.post('../Controler/Treinamento.php',{action:'VISUALIZACAO_TREINAMENTOS',codMembro:codMembro},function(treinamentos){
         $.each(treinamentos,function(indice,treinamento){
             lista+='<tr>';
@@ -40,11 +37,32 @@ function carregaTabelaTreinamento(codMembro){
         boxTabelaTreinamento.innerHTML=lista;
     },'json');
 }
+function carregaTabelaEvento(codMembro){
+    var lista='';
+    let boxTabelaEvento=document.getElementById('boxTabelaEvento');
+    cleanTabelas(boxTabelaEvento);
+    $.post('../Controler/Evento.php',{action:'VISUALIZACAO_EVENTOS',codMembro:codMembro},function(eventos){
+        $.each(eventos,function(indice,evento){
+            lista+='<tr>';
+            lista+='<td>'+evento.NomeEventos+'</td>';
+            lista+='<td>'+evento.Data+'</td>';
+            lista+='<td>'+evento.Descricao+'</td>';
+            lista+='</tr>';  
+        }); 
+        boxTabelaEvento.innerHTML=lista;
+    },'json');
+}
+function cleanTabelas(elemento){
+    while(elemento.firstChild){
+        elemento.removeChild(elemento.firstChild);
+    }
+}
 //Codigo a partir daqui é só efeito visual dos componentes do DOM
 function startFadeInDados(){
     var foto = document.getElementById('foto');
     var tabelaProjeto = document.getElementById('compartimentoTabelaProjeto');
     var tabelaTreinamento=document.getElementById('compartimentoTabelaTreinamento');
+    var tabelaEvento=document.getElementById('compartimentoTabelaEvento');
     setInterval(function () {
         changeOpacity(foto);
         changeMarginTopo(foto);
@@ -56,6 +74,10 @@ function startFadeInDados(){
     setInterval(function () {
         changeOpacity(tabelaTreinamento);
         changeMarginTopo(tabelaTreinamento);
+    },40);
+    setInterval(function () {
+        changeOpacity(tabelaEvento);
+        changeMarginTopo(tabelaEvento);
     },40);
 }
 //O conceito de reuso foi usado fortemente aqui
