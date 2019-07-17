@@ -98,6 +98,32 @@
                 </div>
             </div>
         </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 offset-md-1">
+                        <div id="compartimentoTabelaAcao">
+                            <div class="tituloTabela">Eventos: </div>
+                            <table class="table" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome do ação: </th>
+                                        <th scope="col">Descrição: </th>
+                                        <th scope="col">Inicio da ação: </th>
+                                        <th scope="col">Inicio da participação: </th>
+                                        <th scope="col">Fim da participação </th>
+                                        <th scope="col">Atividades: </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="boxTabelaAcao"> 
+                                
+                                </tbody>
+                            </table>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </section>
         <script type="text/javascript" src="Js/BarraLateral.js"></script>
         <script type="text/javascript" src="Js/FolhaMembro.js"></script>
         <script type="text/javascript" src="jsBootstrap/jquery-3.4.1.min.js"></script>

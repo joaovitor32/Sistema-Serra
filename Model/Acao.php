@@ -1,5 +1,6 @@
 <?php
 class Acao{
+    private $CodMembro;
     private $DataIni;
     private $DataFim;
     private $Atividades;
@@ -8,6 +9,9 @@ class Acao{
     private $Data;
 
     //Gets
+    public function getCodMembro(){
+        return $this->CodMembro;
+    }
     public function getDataIni(){
         return $this->DataIni;
     }
@@ -27,6 +31,9 @@ class Acao{
         return $this->Data;
     }
     //Sets
+    public function setCodMembro($CodMembro){
+        $this->CodMembro=$CodMembro;
+    }
     public function setDataIni($DataIni){
         $this->DataIni=$DataIni;
     }
@@ -36,6 +43,34 @@ class Acao{
     public function setAtividades($Atividades){
         $this->Atividades=$Atividades;
     }
-    
+    public function setNome($Nome){
+        $this->Nome=$Nome;
+    }
+    public function setDescricao($Descricao){
+        $this->Descricao=$Descricao;
+    }
+    public function setDataInicioAcao($Data){
+        $this->Data=$Data;
+    }
+    //Listagem de acao de determinado membro
+    public function listagemAcaoMembro(){
+        try{
+            include('Database.php');
+            $sqlAcaoMembro='SELECT * FROM  Acao AS Ac INNER JOIN AcaoMembro AS Am ON Am.CodAcao=Ac.CodAcao WHERE Am.CodMembro=?';
+            $stmtAcaoMembro=$conexao->prepare($sqlAcaoMembro);
+            $stmtAcaoMembro->bindParam(1,$this->CodMembro);
+            $stmtAcaoMembro->execute();
+
+            $acaoMembro=$stmtAcaoMembro->fetchALL(PDO::FETCH_ASSOC);
+            return $acaoMembro;
+
+        }catch(PDOException $e){
+            echo "Erro: ".$e->getMessage();
+        }
+    }
+    //Listagem de acao de determinado membro no formado JSON
+    public function listagemAcaoMembroJSON(){
+        return json_encode($this->listagemAcaoMembro());
+    }
 }
 ?>

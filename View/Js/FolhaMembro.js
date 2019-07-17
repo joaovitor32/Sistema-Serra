@@ -2,8 +2,14 @@ function carregaDados(codMembro){
     carregaTabelaProjeto(codMembro);
     carregaTabelaTreinamento(codMembro);
     carregaTabelaEvento(codMembro);
+    carregaTabelaAcao(codMembro);
 }
 //Parte para carregar as tabelas
+function cleanTabelas(elemento){
+    while(elemento.firstChild){
+        elemento.removeChild(elemento.firstChild);
+    }
+}
 function carregaTabelaProjeto(codMembro){
     var lista='';
     let tabelaBoxProjeto=document.getElementById('boxTabelaProjeto');
@@ -52,10 +58,8 @@ function carregaTabelaEvento(codMembro){
         boxTabelaEvento.innerHTML=lista;
     },'json');
 }
-function cleanTabelas(elemento){
-    while(elemento.firstChild){
-        elemento.removeChild(elemento.firstChild);
-    }
+function carregaTabelaAcao($codMembro){
+
 }
 //Codigo a partir daqui é só efeito visual dos componentes do DOM
 function startFadeInDados(){
