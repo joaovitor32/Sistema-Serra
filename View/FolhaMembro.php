@@ -103,7 +103,7 @@
                 <div class="row">
                     <div class="col-md-12 offset-md-1">
                         <div id="compartimentoTabelaAcao">
-                            <div class="tituloTabela">Eventos: </div>
+                            <div class="tituloTabela">Ação: </div>
                             <table class="table" >
                                 <thead>
                                     <tr>

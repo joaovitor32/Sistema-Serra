@@ -58,8 +58,23 @@ function carregaTabelaEvento(codMembro){
         boxTabelaEvento.innerHTML=lista;
     },'json');
 }
-function carregaTabelaAcao($codMembro){
-
+function carregaTabelaAcao(codMembro){
+    var lista='';
+    let boxTabelaAcao=document.getElementById('boxTabelaAcao');
+    cleanTabelas(boxTabelaAcao);
+    $.post('../Controler/Acao.php',{action:'VISUALIZACAO_ACAO',codMembro:codMembro},function(acoes){
+        $.each(acoes,function(indice,acao){
+            lista+='<tr>';
+            lista+='<td>'+acao.Nome+'</td>';
+            lista+='<td>'+acao.Descricao+'</td>';
+            lista+='<td>'+acao.Data+'</td>';
+            lista+='<td>'+acao.DataIni+'</td>';
+            lista+='<td>'+acao.DataFim+'</td>';
+            lista+='<td>'+acao.Atividades+'</td>';
+            lista+='</tr>';
+        });
+        boxTabelaAcao.innerHTML=lista;
+    },'json');
 }
 //Codigo a partir daqui é só efeito visual dos componentes do DOM
 function startFadeInDados(){
@@ -67,22 +82,20 @@ function startFadeInDados(){
     var tabelaProjeto = document.getElementById('compartimentoTabelaProjeto');
     var tabelaTreinamento=document.getElementById('compartimentoTabelaTreinamento');
     var tabelaEvento=document.getElementById('compartimentoTabelaEvento');
+    var tabelaAcao=document.getElementById('compartimentoTabelaAcao');
     setInterval(function () {
         changeOpacity(foto);
         changeMarginTopo(foto);
-    },40);
-    setInterval(function () {
         changeOpacity(tabelaProjeto);
         changeMarginTopo(tabelaProjeto);
-    },40);
-    setInterval(function () {
         changeOpacity(tabelaTreinamento);
         changeMarginTopo(tabelaTreinamento);
-    },40);
-    setInterval(function () {
         changeOpacity(tabelaEvento);
         changeMarginTopo(tabelaEvento);
+        changeOpacity(tabelaAcao);
+        changeMarginTopo(tabelaAcao);
     },40);
+    
 }
 //O conceito de reuso foi usado fortemente aqui
 function changeOpacity(elemento){
