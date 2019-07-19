@@ -14,9 +14,6 @@ $(document).ready(function(){
         },'json');
     }
 });
-function redirectMembroCadastrar(){
-    window.location="MembroCadastrar.php";
-}
 function redirectMembroVisualizar(){
     window.location="MembroVisualizar.php";
 }
