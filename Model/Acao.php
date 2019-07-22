@@ -46,6 +46,9 @@ class Acao{
     public function setNome($Nome){
         $this->Nome=$Nome;
     }
+    public function setData($Data){
+        $this->Data=$Data;
+    }
     public function setDescricao($Descricao){
         $this->Descricao=$Descricao;
     }
@@ -56,7 +59,7 @@ class Acao{
     public function createAcao(){
         try{
             include 'Database.php';
-            $sqlInsert="INSERT INTO Acao(Nome,Descricao,'Data') VALUES (?,?,?)";
+            $sqlInsert="INSERT INTO Acao(Nome,Descricao,DataAcao) VALUES (?,?,?)";
             $conexao->beginTransaction();
             $stmtInsert=$conexao->prepare($sqlInsert);
             $stmtInsert->bindParam(1,$this->Nome);
