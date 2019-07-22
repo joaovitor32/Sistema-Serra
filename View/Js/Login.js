@@ -16,6 +16,6 @@ $(document).ready(function(){
 });
 window.onload=function lockPage(){
     document.addEventListener("DOMContentLoaded", function(event){
-        window.location.assign('Login.html');
+        window.location.assign('Login.php');
       });
 }

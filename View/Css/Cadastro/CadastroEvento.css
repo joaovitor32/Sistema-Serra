@@ -1,0 +1,17 @@
+#boxCadastroEvento{
+    margin-top:6%;
+    display:block;
+}
+#boxCadastroEvento>div{
+    margin-top:3%;
+    margin-bottom:3%;
+}
+#boxCadastroEvento>div>span{
+    color:rgb(254,103,0);
+}
+#boxCadastroEvento>div>input{
+    border:1px solid rgb(254,103,0);
+    border-radius:10px;
+    color:rgb(254,103,0);
+    outline:none;
+}

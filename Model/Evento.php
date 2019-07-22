@@ -35,6 +35,23 @@
         public function setDescricaoEvento($Descricao){
             $this->Descricao=$Descricao;
         }
+        //Criação de um evento
+        public function createEvento(){
+            try{
+                include 'Database.php';
+                $sqlInsert="INSERT INTO EventosExternos(NomeEventos,DataEvento,Descricao) VALUES(?,?,?)";
+                $conexao->beginTransaction();
+                $stmtInsert=$conexao->prepare($sqlInsert);
+                $stmtInsert->bindParam(1,$this->NomeEvento);
+                $stmtInsert->bindParam(2,$this->Data);
+                $stmtInsert->bindParam(3,$this->Descricao);
+                $stmtInsert->execute();
+                $conexao->commit();
+            }catch(PDOException $e){
+                $conexao->rollback();
+                echo "Erro: ".$e->getMessage();
+            }   
+        }
         //Selecao de eventos dado um membro especifico
         public function selectEventosMembro(){
             try{

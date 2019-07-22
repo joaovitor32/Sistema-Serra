@@ -9,7 +9,7 @@ $(document).ready(function(){
         var dadosSerializados=new URLSearchParams(dados).toString();
         $.post('../Controler/Login.php',dadosSerializados,function(retorno){
             if(retorno==true){
-                window.location.replace('Login.html');
+                window.location.replace('Login.php');
             }
         },'json');
     }
