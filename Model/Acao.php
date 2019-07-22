@@ -52,6 +52,23 @@ class Acao{
     public function setDataInicioAcao($Data){
         $this->Data=$Data;
     }
+    //Create Acao
+    public function createAcao(){
+        try{
+            include 'Database.php';
+            $sqlInsert="INSERT INTO Acao(Nome,Descricao,'Data') VALUES (?,?,?)";
+            $conexao->beginTransaction();
+            $stmtInsert=$conexao->prepare($sqlInsert);
+            $stmtInsert->bindParam(1,$this->Nome);
+            $stmtInsert->bindParam(2,$this->Descricao);
+            $stmtInsert->bindParam(3,$this->Data);
+            $stmtInsert->execute();
+            $conexao->commit();
+        }catch(PDOException $e){
+            $e->rollback();
+            echo "Erro: ".$e->getMessage();
+        }
+    }
     //Listagem de acao de determinado membro
     public function listagemAcaoMembro(){
         try{

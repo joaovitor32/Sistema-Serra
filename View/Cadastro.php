@@ -31,6 +31,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="home-tab" data-toggle="tab" href="#Projetos" role="tab" aria-controls="home" aria-selected="true">Projetos</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#Acao" role="tab" aria-controls="home" aria-selected="true">Ação</a>
+                                </li>
                             </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="Membros" role="tabpanel" aria-labelledby="home-tab">
@@ -85,11 +88,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="Fotos" role="tabpanel" aria-labelledby="contact-tab">
-                            
-                                    </div>
                                 </div>
                             </div> 
+                            <div class="tab-pane fade" id="Acao" role="tabpanel" aria-labelledby="contact-tab">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +100,7 @@
         </section>
         <script type="text/javascript" src="jsBootstrap/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="Js/BarraLateral.js"></script>
-        <script type="text/javascript" src="Js/ProjetoCadastrar.js"></script>
-        <script type="text/javascript" src="Js/MembroCadastrar.js"></script>
+        <script type="text/javascript" src="Js/Projeto.js"></script>
+        <script type="text/javascript" src="Js/Membro.js"></script>
     </body>
 </html>

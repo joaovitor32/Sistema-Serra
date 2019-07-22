@@ -48,7 +48,7 @@
                 </div>
             </div>
         </section>
-        <script type="text/javascript" src="./Js/MembroVisualizar.js"></script>
+        <script type="text/javascript" src="./Js/Membro.js"></script>
         <script type="text/javascript" src="./jsBootstrap/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="./DataTables/datatables.min.js"></script>
         <script type="text/javascript" src="./Js/BarraLateral.js"></script>
