@@ -89,12 +89,12 @@
             $this->Status=$Status;
         }
         //CRUD
-        public function createAluno(){
+        public function createMembro(){
             try{
                 include 'Database.php';
                 $sqlInsert='INSERT INTO Membros(Nome,Curso,AnoDeEntrada,Cargo,Telefone,CPF,NomeRua,Numero,Email,DataNascimento,Bairro,Estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
-                $stmtInsert=$conexao->prepare($sqlInsert);
                 $conexao->beginTransaction();
+                $stmtInsert=$conexao->prepare($sqlInsert);
                 $stmtInsert->bindParam(1,$this->Nome);
                 $stmtInsert->bindParam(2,$this->Curso);
                 $stmtInsert->bindParam(3,$this->AnoEntrada);

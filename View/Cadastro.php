@@ -68,13 +68,19 @@
                                     <div class="tab-pane fade" id="Projetos" role="tabpanel" aria-labelledby="profile-tab">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="col-md-12-offset-4">
-                                                    <span>Nome: </span><input type="text" name="nomeProjeto">
-                                                    <span>Início do projeto: </span><input type="date" name="iniProjeto">
-                                                    <span>Data de conclusão esperada: </span><input type="date" name="fimProjeto">
-                                                    <span>Preço: </span><input type="number" name="preco">
-                                                    <span>Preço: </span><input type="text" name="descricao">
-                                                    <span>Contratante: </span><input type="text" name="contratante">
+                                                <div class="col-md-12 offset-md-4">
+                                                    <form id="frm-cadastro-projeto">
+                                                        <div id="boxCadastroProjeto">
+                                                            <input type="hidden" name="action" value="CADASTRO_PROJETO">
+                                                            <div><span>Nome: </span><input type="text" name="Nome"></div>
+                                                            <div><span>Início do projeto: </span><input type="date" name="DataIni"></div>
+                                                            <div><span>Data de conclusão esperada: </span><input type="date" name="DataFim"></div>
+                                                            <div><span>Preço: </span><input type="number" name="Preco"></div>
+                                                            <div><span>Descrição : </span><input type="text" name="Descricao"></div>
+                                                            <div><span>Contratante: </span><input type="text" name="Contratante"></div>
+                                                            <div><button class="inputCadastrar" id="botao-cadastro-projeto">Cadastrar</button></div>
+                                                        <div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -89,8 +95,8 @@
                 </div>
             </div>                 
         </section>
-        <script type="text/javascript" src="Js/BarraLateral.js"></script>
         <script type="text/javascript" src="jsBootstrap/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="Js/BarraLateral.js"></script>
         <script type="text/javascript" src="Js/ProjetoCadastrar.js"></script>
         <script type="text/javascript" src="Js/MembroCadastrar.js"></script>
     </body>

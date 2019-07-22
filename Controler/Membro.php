@@ -19,7 +19,7 @@
                 $novoMembro->setNumero($_POST['numero']);
                 $novoMembro->setRua($_POST['rua']);
                 $novoMembro->setStatus(1);        
-                $novoMembro->createAluno(); 
+                $novoMembro->createMembro(); 
                 $novoMembro->cadastroDeFoto($_FILES['foto']);
                 $result=$_POST['action'];
                 echo json_encode(array('result'=>$result));
