@@ -60,3 +60,36 @@ input:focus{
 .dismiss{
     color:white;
 }
+input{
+    margin-top:2%;
+    margin-left:4%;
+    margin-bottom:2%;
+    color:rgb(254,103,0);
+}
+#boxInputCadLigacao>div>span{
+    color:rgb(254,103,0);
+}
+::-webkit-input-placeholder {
+    color:rgb(254,103,0);
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    color:rgb(254,103,0);
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    color:rgb(254,103,0);
+ }
+ 
+ :-ms-input-placeholder {  
+    color:rgb(254,103,0);
+ }
+ #btn-cad-ligacao{
+     margin-top:12%;
+     margin-left:40%;
+     margin-bottom:4%;
+}
+.modal-body {
+    width: 100%;
+    overflow-x: auto;
+}

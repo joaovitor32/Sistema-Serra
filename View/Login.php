@@ -30,7 +30,7 @@
                                 <span>Senha: </span><input type="password" name="senha">
                                 <div><button type="button" class="checkCadastro" id="botao-novo-login">Entrar</button></div>
                                 <div><button type="button" class="checkCadastro" data-toggle="modal" data-target="#cadastrarLigacao">Cadastrar ligação</button></div>
-                                <div><button type="button" class="checkCadastro" data-toggle="modal" data-target="#visualizarLigacao">Visualizar ligações</button></div>
+                                <div><button type="button" style="margin-bottom:4%;" class="checkCadastro" data-toggle="modal" data-target="#visualizarLigacao">Visualizar ligações</button></div>
                             </form>
                         </div>
                     </div>
@@ -47,11 +47,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                    
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="checkCadastro">Cadastrar</button>
-                        <button type="button" class="checkCadastro" data-dismiss="modal">Fechar</button>
+                        <div id="boxInputCadLigacao">
+                            <form id="frm-cad-ligacao" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="action" value='CADASTRO_LIGACAO'>
+                                <div><span>Data:</span><input name="data" type="date"></div>
+                                <div><span>Resultado da ligação:</span><input type="text" name="descricao" maxlength="200"  required></div>
+                                <div><span>Número de telefone usado:</span><input type="text" name="telefone" maxlength="15"  id="telefone" placeholder=" (DDD) 0000-0000" required></div>
+                                <div><span>Nome da pessoa que atendeu:</span><input type="text" name="nomeAtendente" maxlength="40" required></div>
+                                <div><span>Nome da empresa:</span><input type="text" name="nomeEmpresa"  maxlength="50" required></div>
+                                <div><span>Ramo da empresa:</span><input type="text" name="ramo" maxlength="50" required></div>
+                                <button type="submit" id="btn-cad-ligacao" class="checkCadastro">Cadastrar</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,16 +73,36 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                    
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="boxTabelaLigacao">
+                                        <table class="table">
+                                        <button type="submit" id="btn-vis-ligacao" class="checkCadastro">Ativar</button>
+                                            <tr>
+                                                <th col="scope">Data ligação</th>
+                                                <th col="scope">Descrição:</th>
+                                                <th col="scope">Telefone</th>
+                                                <th col="scope">Nome atendente:</th>
+                                                <th col="scope">Nome empresa</th>
+                                                <th col="scope">Ramo</th>
+                                            </tr>
+                                            <tbody id="listaAlunos">
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="checkCadastro">Visualizar</button>
                         <button type="button" class="checkCadastro" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
         </div>
         <script type="text/javascript" src="jsBootstrap/bootstrap.js"></script>
-        <script type="text/javascript" src="Js/Login.js"></script>
+        <script type="text/javascript" src="Js/Login.js" async></script>
     </body>
 </html>
