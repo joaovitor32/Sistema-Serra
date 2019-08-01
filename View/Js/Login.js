@@ -74,8 +74,16 @@ carregaLigacoes=()=>{
     .then(ligacoes=>{
         var lista='';
         ligacoes.forEach(ligacao=>{
-            console.log(ligacao);
+            lista+='<tr>'
+            lista+='<td>'+ligacao.dataLigacao+'</td>';
+            lista+='<td>'+ligacao.descricao+'</td>';
+            lista+='<td>'+ligacao.telefone+'</td>';
+            lista+='<td>'+ligacao.nomeAtendente+'</td>';
+            lista+='<td>'+ligacao.nomeEmpresa+'</td>';
+            lista+='<td>'+ligacao.ramo+'</td>';
+            lista+='</tr>'
         })
+        tabela.innerHTML=lista;
     })
     .catch(erro => console.log("Erro: "+erro));
     
