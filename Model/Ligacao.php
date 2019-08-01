@@ -80,7 +80,7 @@
             }
         }
         public function listaLigacaoJson(){
-             json_encode($this->listagemLigacoes());
+            echo json_encode($this->listagemLigacoes());
         }
     }
 ?>

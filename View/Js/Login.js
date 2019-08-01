@@ -54,29 +54,39 @@ cadastraLigacao= async()=>{
 }
 //carrega dados das ligacoes nas tabelas
 carregaLigacoes=()=>{
-    let tabelaLigacao= document.getElementById("listaAlunos");
-    let url="../Controler/Ligacao.php";
+    let url="../Controler/listaLigacoes.php";
+    
     var headers = new Headers({
         "Content-Type":"application/aplication/json",
         "Acess-Control-Allow-Origin":"*"
     });
-    fetch(url,{
+    
+    var tabela=document.getElementById('listaAlunos');
+
+    var req = new Request(url,{
         method:'post',
         headers:headers,
-        body:JSON.stringify({action:'CARREGA_LIGACOES'}),
         mode:'cors',
-    })
+    });
+    
+    fetch(req)
     .then(response => response.json())
-    .then(json_object => {return json_object})
+    .then(ligacoes=>{
+        var lista='';
+        ligacoes.forEach(ligacao=>{
+            console.log(ligacao);
+        })
+    })
     .catch(erro => console.log("Erro: "+erro));
+    
 }
 // Carrega funções que usam o fetch que precisam ser carregadas no window.onload
-carregaComponentes=async ()=>{
+carregaComponentes=async()=>{
     let btnCadLig=document.getElementById('btn-cad-ligacao');
-    btnCadLig.addEventListener('click',function(){cadastraLigacoes()});
+    btnCadLig.addEventListener('click',function(){cadastraLigacao()});
 
-    let btnVisLig=document.getElementById('btn-vis-ligacao');
-    btnVisLig.addEventListener('click',await function(){ carregaLigacoes()});
+    await carregaLigacoes();
+
 }
 //Executa as funções no load da página - Javascript Puro
 window.onload=function(){

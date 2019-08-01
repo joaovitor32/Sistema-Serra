@@ -78,7 +78,6 @@
                                 <div class="col-md-12">
                                     <div id="boxTabelaLigacao">
                                         <table class="table">
-                                        <button type="submit" id="btn-vis-ligacao" class="checkCadastro">Ativar</button>
                                             <tr>
                                                 <th col="scope">Data ligação</th>
                                                 <th col="scope">Descrição:</th>

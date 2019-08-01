@@ -12,11 +12,6 @@
                 $ligacao->setRamo($_POST['ramo']);
                 $ligacao->createLigacao();
                 break;
-            case 'CARREGA_LIGACOES':
-                include '../Model/Ligacao.php';
-                $ligacao=new Ligacao();
-                echo $ligacao->listaLigacaoJson();
-                break;
         }
     }
 ?>
