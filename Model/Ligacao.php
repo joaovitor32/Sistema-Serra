@@ -67,7 +67,6 @@
         }
         public function listagemLigacoes(){
             try{
-
                 include "Database.php";
                 $sqlLista='SELECT * FROM Ligacao';
                 $stmtLista=$conexao->prepare($sqlLista);

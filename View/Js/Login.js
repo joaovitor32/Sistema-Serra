@@ -54,18 +54,17 @@ cadastraLigacao= async()=>{
 }
 //carrega dados das ligacoes nas tabelas
 carregaLigacoes=()=>{
-    let url="../Controler/listaLigacoes.php";
-    
+    let url="../Controler/Ligacao.php";
     var headers = new Headers({
         "Content-Type":"application/aplication/json",
         "Acess-Control-Allow-Origin":"*"
     });
-    
     var tabela=document.getElementById('listaAlunos');
 
     var req = new Request(url,{
         method:'post',
         headers:headers,
+        body:JSON.stringify({action:'VISUALIZAR_LIGACOES'}),
         mode:'cors',
     });
     
@@ -88,6 +87,8 @@ carregaLigacoes=()=>{
     .catch(erro => console.log("Erro: "+erro));
     
 }
+//Carregar Dados de acordo com input
+
 // Carrega funções que usam o fetch que precisam ser carregadas no window.onload
 carregaComponentes=async()=>{
     let btnCadLig=document.getElementById('btn-cad-ligacao');
